@@ -60,14 +60,17 @@ doc string 必须是函数要定义的**第一个**内容
 
 ##Chapter 4自省的威力
 自省是指代码可以查看内存中以对象形式存在的其它
+
 ###4.2 可选参数和命名参数
 调用函数时唯一必须做的事情就是为每一个必备参数指定值 
+
 ###4.3内置函数
 1. type
 2. str() 强制转换成字符串， 可以作用于任何数据类型，甚至是None, 都能得到'None'
 3. dir 函数返回任意对象的属性和方法列表
 4. callable 函数，它接收任何对象作为参数，如果参数对象是可调用的，返回True，否则返回False
 5. type,str等内置函数都包含在__buidin__这个特殊的模块中
+
 ###4.4 通过getattr获得对象引用
 1. getattr(object, "attribute")等价于object.attribute;如果object是一个模块的话，那么attribute可能是定义在模块中的任何东西：函数、类或者全局变量；如果object是内置数据类型，得到的是方法
 2. getattr作为一个分发者;statsout模块定义了三个函数:`output_html`,`output_text`,`output_xml`
@@ -79,4 +82,17 @@ doc string 必须是函数要定义的**第一个**内容
     	return output_function(data)
 ```
 最后一个为getattr的可选参数，是一个缺省返回值
-###4.5
+
+###4.5过滤列表
+`[mapping-expression for element in source-list if filter-expression]`
+
+###4.6 and 和 or 的特殊性质
+1. 如果and逻辑演算的值为假，则返回第一个假值；如果为真，则返回最后一个真值
+2. or返回第一个真值或者最后一个假值
+3. and-or技巧： bool and a or b, 类似bool ? a : b,但如果a的值为假，则不会正确工作。安全工作方法：`(bool and [a] or [b])[0]
+
+###4.7使用lambda函数
+1. 可以将lambda赋予一个变量进行调用
+2. lambda 函数在布尔环境中总是为真。(这并不意味这 lambda 函数不能返回假值。
+
+`'some string'.ljust(spacing)` :ljust 用空格填充字符串以符合指定的spacing长度.
