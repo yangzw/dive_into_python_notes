@@ -138,3 +138,19 @@ doc string 必须是函数要定义的**第一个**内容
 1. os.path: join,expanduser,split,splitext(文件名和扩展名分开);path封装了平台之间的不同;isfile,isdir;normcase
 2. os.listdir:返回目录内容的list
 3. glob模块的glob方法支持通配符
+
+##第7章正则表达式
+1. re模块
+2. 松散型正则表达式:忽略空白符and忽略注释(指的是传给search的pattern),并添加re.VERBOSE参数: re.search(pattern, string, re.VERBOSE)
+
+##第8章HTML处理
+###8.2 sgmllib.py介绍
+1. SGMLParse类. SGMLParser将HTML分为:开始标记/结束标记/字符引用/实体引用/注释/处理指令/声明/文本数据
+2. SGMLParse类只是一个消费者，只负责分解。应该定义其子类，定义相应的方法
+3. python处理list比字符串快
+4. locals 和globals: 命名空间; locals 返回的只是拷贝，而globals不是
+5. 基于dictionary的字符串格式化
+```python
+	params = {'exam1':'ddd','exam2':'kkk'}
+	print "%(exam1)s is %(exam2)s" % params
+```
